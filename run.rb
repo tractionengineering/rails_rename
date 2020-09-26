@@ -28,8 +28,8 @@ def rename_in_file(path, casing: :to_s)
   File.open(path, 'w') { |f| f.write(file) }
 end
 
-DEFAULT_APP_GIT_URL = 'https://github.com/lh-innovationhub/discount-pass.git'.freeze
-SAMPLE_APP_NAME = 'DiscountPass'.freeze
+DEFAULT_APP_GIT_URL = 'https://github.com/tractionengineering/traction-scaffold.git'.freeze
+SAMPLE_APP_NAME = 'TractionScaffold'.freeze
 DEVELOPMENT_KEY = '6fb95877a3fab8dfa405d19897e4bf51'.freeze
 
 puts 'Enter name of the app'
@@ -68,3 +68,9 @@ File.open(File.join(__dir__, repo_name, 'config/master.key'), 'w') { |f| f.write
 puts 'removing this script'
 system('cd ../')
 File.delete($PROGRAM_NAME)
+puts 'DONE'
+
+puts "Hints: cd into #{repo_name} and run the following commands:"
+puts '- bundle install'
+puts '- bundle exec rails db:create db:migrate'
+puts '- yarn'
