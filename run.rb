@@ -22,4 +22,4 @@ puts "renaming the app to '#{app_name}'"
 # OR execute the script via CURL instead of keeping a local copy
 puts 'removing this script'
 system('cd ../')
-File.delete($0)
+File.delete($PROGRAM_NAME)
