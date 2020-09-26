@@ -65,9 +65,7 @@ puts 'adding master.key'
 system("touch #{File.join(__dir__, repo_name, 'config/master.key')}")
 File.open(File.join(__dir__, repo_name, 'config/master.key'), 'w') { |f| f.write(DEVELOPMENT_KEY) }
 
-# OR execute the script via CURL instead of keeping a local copy
 puts 'removing this script'
-system('cd ../')
 File.delete($PROGRAM_NAME)
 puts 'DONE'
 
