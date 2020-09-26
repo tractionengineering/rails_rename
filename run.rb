@@ -20,6 +20,7 @@ end
 # caasing: - `:to_s` for default (CamelCase)
 #          - `:underscore`
 #          - `:titelize`
+#          - `:dasherize`
 def rename_in_file(path, casing: :to_s)
   file = File.open(path).read
   new_name = @app_name.send(casing)
