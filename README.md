@@ -8,7 +8,7 @@ The following script will:
 # navigate to your desired destination, e.g. `~/Sites/traction/:client_name/`
 
 # download default app
-curl -LJO https://github.com/tractionengineering/rails_rename/blob/master/run.rb
+curl -LJO https://raw.githubusercontent.com/tractionengineering/rails_rename/master/run.rb
 ruby run.rb
 ```
 
