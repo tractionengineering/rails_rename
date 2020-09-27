@@ -15,13 +15,17 @@ class String
   def dasherize
     self.underscore.split('_').join('-')
   end
+
+  def camelize
+    self.underscore.split('_').map(&:capitalize).join
+  end
 end
 
-# caasing: - `:to_s` for default (CamelCase)
-#          - `:underscore`
-#          - `:titelize`
-#          - `:dasherize`
-def rename_in_file(path, casing: :to_s)
+# casing: - `:camelize` (default)
+#         - `:underscore`
+#         - `:titelize`
+#         - `:dasherize`
+def rename_in_file(path, casing: :camelize)
   file = File.open(path).read
   new_name = @app_name.send(casing)
   old_name = SAMPLE_APP_NAME.send(casing)
