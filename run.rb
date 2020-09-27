@@ -21,11 +21,11 @@ class String
   end
 end
 
-# casing: - `:camelize` (default)
+# casing: - `:camelize`
 #         - `:underscore`
 #         - `:titelize`
 #         - `:dasherize`
-def rename_in_file(path, casing: :camelize)
+def rename_in_file(path, casing: :to_s)
   file = File.open(path).read
   new_name = @app_name.send(casing)
   old_name = SAMPLE_APP_NAME.send(casing)
@@ -37,11 +37,11 @@ DEFAULT_APP_GIT_URL = 'https://github.com/tractionengineering/traction-scaffold.
 SAMPLE_APP_NAME = 'TractionScaffold'.freeze
 DEVELOPMENT_KEY = '6fb95877a3fab8dfa405d19897e4bf51'.freeze
 
-puts 'Enter name of the app'
+puts 'Enter name of the app:'
 @app_name = ARGV[0] || Kernel.gets.chomp
 
-puts 'Enter name of the git repository'
-repo_name = ARGV[1] || Kernel.gets.chomp
+puts 'Enter name of the git repository/folder name:'
+repo_name = (ARGV[1] || Kernel.gets.chomp).dasherize
 
 system("mkdir #{repo_name}")
 
@@ -54,7 +54,7 @@ system("rm -rf #{repo_name}/.git")
 system("git init #{repo_name}")
 
 puts 'renaming config/application.rb'
-rename_in_file(File.join(__dir__, repo_name, 'config/application.rb'))
+rename_in_file(File.join(__dir__, repo_name, 'config/application.rb'), casing: :camelize)
 puts 'renaming package.json'
 rename_in_file(File.join(__dir__, repo_name, 'package.json'), casing: :underscore)
 puts 'renaming config/database.yml'
