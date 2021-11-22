@@ -1,3 +1,8 @@
+# DEPRECATED
+We moved to a new approach for scaffolding applications. This approach is (not yet?) open source :-)
+
+
+# Readme
 ## Description
 The script `run.rb` will:
 - download our default Rails 6 app: https://github.com/tractionengineering/traction-scaffold
